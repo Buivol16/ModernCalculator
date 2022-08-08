@@ -4,16 +4,18 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class LogicButton implements MouseListener {
-    private boolean itFirstChar = true;
-    JButton button;
-    LogicButton(JButton button){
+public class ButtonListener implements MouseListener {
+    private JButton button;
+    private CalculationLogic logic;
+
+    ButtonListener(JButton button, CalculationLogic logicClass){
         this.button = button;
+        logic = logicClass;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        logic.init(button);
     }
 
     @Override
